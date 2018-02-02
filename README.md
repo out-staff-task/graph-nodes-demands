@@ -11,6 +11,6 @@ To run the Application you will sure with:
 
 To run the application you should perform next:
 
-1. Open CMD windows (Windows) or Terminal (MacOS, Linux) in the source folder
-2. Build the application using `mvn clean package`
-3. In the same window run: `java -jar target/graph-nodes-demands-0.1.jar` and wait for it to start up
+1. Open CMD windows (Windows) or Terminal (Linux) in the source folder
+2. Build the application using `gradle clean build`
+3. In the same window run: `java -jar target/graph-nodes-demands-0.1-SNAPSHOT.jar` and wait for it to start up

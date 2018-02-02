@@ -64,7 +64,7 @@ public class NodesServiceModel implements NodesService {
     @Transactional(readOnly = true)
     public List<NodeDto> getAllParentsByIdDto(Long id) {
         if (!repository.exists(id)) {
-            throw new DataRequestException(String.format("vertex with id: %s not found", id));
+            throw new DataRequestException(String.format("Node with id: %s not found", id));
         }
         List<NodeEntity> parents = new ArrayList<>();
         fillParents(repository.findOne(id), parents);
@@ -85,7 +85,7 @@ public class NodesServiceModel implements NodesService {
     @Transactional(readOnly = true)
     public List<NodeDto> getAllChildrenByIdDto(Long id) {
         if (!repository.exists(id)) {
-            throw new DataRequestException(String.format("vertex with id: %s not found", id));
+            throw new DataRequestException(String.format("Node with id: %s not found", id));
         }
         List<NodeEntity> children = new ArrayList<>();
         fillChildren(repository.findOne(id), children);

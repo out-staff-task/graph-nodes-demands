@@ -113,12 +113,12 @@ public class NodesServiceModelTest {
         Long newParentId = 5L;
 
         assertTrue(repository.exists(newParentId));
-        NodeDto storedVertex = repository.findOne(id).dto();
-        assertNotEquals(storedVertex.getParentId(), newParentId);
-        storedVertex.setParentId(newParentId);
+        NodeDto found = repository.findOne(id).dto();
+        assertNotEquals(found.getParentId(), newParentId);
+        found.setParentId(newParentId);
 
-        NodeDto dto = service.updateAndReturnDto(storedVertex);
-        assertNodesDtoEquals(storedVertex, dto);
+        NodeDto dto = service.updateAndReturnDto(found);
+        assertNodesDtoEquals(found, dto);
     }
 
     @Test
@@ -193,7 +193,7 @@ public class NodesServiceModelTest {
     }
 
     @Test(expected = DataRequestException.class)
-    public void getAllParentsByIdDtoIfVertexNotExistTest() {
+    public void getAllParentsByIdDtoIfSpikeNotExistTest() {
         long id = 1L;
         service.getAllParentsByIdDto(id);
         fail();
@@ -226,7 +226,7 @@ public class NodesServiceModelTest {
     }
 
     @Test(expected = DataRequestException.class)
-    public void getAllChildrenByIdDtoIfVertexNotExistsTest() {
+    public void getAllChildrenByIdDtoIfSpikeNotExistsTest() {
         long id = 1L;
         service.getAllChildrenByIdDto(id);
         fail();

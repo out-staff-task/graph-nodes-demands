@@ -32,25 +32,25 @@ public class NodesController {
 
     @GetMapping("/{id}")
     @ApiOperation("Create node with specified ID or return stored if exist one")
-    public NodeDto getOrCreateVertexById(@PathVariable Long id) {
+    public NodeDto getOrCreateNodeById(@PathVariable Long id) {
         return service.getOrCreateDto(id);
     }
 
     @PostMapping
     @ApiOperation("Create node with specified ID and specified parent and child, if one or parent or any child don't exist then will be created")
-    public NodeDto Vertex(@RequestBody @Valid NodeDto nodeDto) {
+    public NodeDto Nodes(@RequestBody @Valid NodeDto nodeDto) {
         return service.createAndReturnDto(nodeDto);
     }
 
     @PutMapping
     @ApiOperation("Update node with specified ID and specified parent and child, if one or parent or any child don't exist then will be created")
-    public NodeDto updateVertex(@RequestBody @Valid NodeDto nodeDto) {
+    public NodeDto updateNode(@RequestBody @Valid NodeDto nodeDto) {
         return service.updateAndReturnDto(nodeDto);
     }
 
     @DeleteMapping("/{id}")
     @ApiOperation("Delete node with by ID with all children")
-    public NodeDto deleteVertex(@PathVariable Long id) {
+    public NodeDto deleteNode(@PathVariable Long id) {
         return service.deleteAndReturnDto(id);
     }
 }

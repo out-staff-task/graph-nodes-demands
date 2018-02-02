@@ -1,9 +1,9 @@
-create table public.vertices
+create table public.spikes
 (
 	id bigint not null
-		constraint vertices_pkey
-			primary key,
+		constraint spikes_pk
+		primary key,
 	parent_id bigint
-		constraint fkcju1dqx5pygqly6eko835ktcs
-			references vertices
+		constraint spikes_uc
+		references spikes
 );

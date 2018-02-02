@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "vertices")
+@Table(name = "spikes")
 public class NodeEntity {
 
     @Id

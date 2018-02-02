@@ -9,13 +9,13 @@ import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
-public class AssertUtils {
+public class AssertWrapper {
 
-    private AssertUtils() {
+    private AssertWrapper() {
 
     }
 
-    public static void assertVertexDtoEquals(@NotNull NodeDto expected, @NotNull NodeDto actual) {
+    public static void assertNodesDtoEquals(@NotNull NodeDto expected, @NotNull NodeDto actual) {
         assertEquals(expected.getId(), actual.getId());
         assertEquals(expected.getParentId(), actual.getParentId());
 

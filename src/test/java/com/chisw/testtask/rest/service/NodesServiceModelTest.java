@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.LongStream;
 
-import static com.chisw.testtask.helper.AssertUtils.assertVertexDtoEquals;
+import static com.chisw.testtask.helper.AssertWrapper.assertNodesDtoEquals;
 import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
@@ -37,7 +37,7 @@ public class NodesServiceModelTest {
         long id = 3L;
         assertTrue(repository.exists(id));
         NodeDto dto = service.getOrCreateDto(id);
-        assertVertexDtoEquals(repository.findOne(id).dto(), dto);
+        assertNodesDtoEquals(repository.findOne(id).dto(), dto);
     }
 
     @Test
@@ -46,7 +46,7 @@ public class NodesServiceModelTest {
         long id = 4L;
         assertTrue(repository.exists(id));
         NodeDto dto = service.getOrCreateDto(id);
-        assertVertexDtoEquals(repository.findOne(id).dto(), dto);
+        assertNodesDtoEquals(repository.findOne(id).dto(), dto);
     }
 
     @Test
@@ -55,7 +55,7 @@ public class NodesServiceModelTest {
         long id = 7L;
         assertTrue(repository.exists(id));
         NodeDto dto = service.getOrCreateDto(id);
-        assertVertexDtoEquals(repository.findOne(id).dto(), dto);
+        assertNodesDtoEquals(repository.findOne(id).dto(), dto);
     }
 
     @Test
@@ -64,7 +64,7 @@ public class NodesServiceModelTest {
         long id = 10L;
         assertFalse(repository.exists(id));
         NodeDto dto = service.getOrCreateDto(id);
-        assertVertexDtoEquals(NodeDto.builder().id(10L).build(), dto);
+        assertNodesDtoEquals(NodeDto.builder().id(10L).build(), dto);
     }
 
     @Test
@@ -72,7 +72,7 @@ public class NodesServiceModelTest {
         long id = 10L;
         assertFalse(repository.exists(id));
         NodeDto dto = service.getOrCreateDto(id);
-        assertVertexDtoEquals(repository.findOne(id).dto(), dto);
+        assertNodesDtoEquals(repository.findOne(id).dto(), dto);
     }
 
     @Test
@@ -82,7 +82,7 @@ public class NodesServiceModelTest {
         assertTrue(repository.exists(id));
 
         NodeDto dto = service.getOrCreateDto(id);
-        assertVertexDtoEquals(repository.findOne(id).dto(), dto);
+        assertNodesDtoEquals(repository.findOne(id).dto(), dto);
     }
 
     @Test
@@ -118,7 +118,7 @@ public class NodesServiceModelTest {
         storedVertex.setParentId(newParentId);
 
         NodeDto dto = service.updateAndReturnDto(storedVertex);
-        assertVertexDtoEquals(storedVertex, dto);
+        assertNodesDtoEquals(storedVertex, dto);
     }
 
     @Test
@@ -132,7 +132,7 @@ public class NodesServiceModelTest {
                 .build();
 
         NodeDto dto = service.updateAndReturnDto(nodeEntity.dto());
-        assertVertexDtoEquals(nodeEntity.dto(), dto);
+        assertNodesDtoEquals(nodeEntity.dto(), dto);
         assertEquals(repository.count(), 5);
     }
 
@@ -146,7 +146,7 @@ public class NodesServiceModelTest {
 
         NodeDto dto = service.updateAndReturnDto(nodeEntity.dto());
 
-        assertVertexDtoEquals(nodeEntity.dto(), dto);
+        assertNodesDtoEquals(nodeEntity.dto(), dto);
         assertEquals(repository.count() - initialAmount, 5);
     }
 
@@ -161,7 +161,7 @@ public class NodesServiceModelTest {
 
         NodeDto dto = service.updateAndReturnDto(nodeEntity.dto());
 
-        assertVertexDtoEquals(nodeEntity.dto(), dto);
+        assertNodesDtoEquals(nodeEntity.dto(), dto);
         assertEquals(repository.count() - initialAmount, 1);
     }
 

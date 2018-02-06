@@ -9,9 +9,3 @@ eureka:
   client:
     fetch-registry: true
     register-with-eureka: true
-
-#eureka:
-#  client:
-#  fetch-egistry: true
-#  registerWithEureka: true
-#  service-url.defaultZone: http://localhost:8761/eureka

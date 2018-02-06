@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: spikes-graph-api-client
+
+eureka:
+  client:
+    enabled: false
